@@ -1,0 +1,30 @@
+import requests
+import json
+
+moeda = input('qual moeda deseja consultar: ').upper()
+url = 'https://economia.awesomeapi.com.br/json/all/'
+r = requests.get(url)
+x = r.json()
+
+print('MOEDA: ',x[moeda]['name'])
+print('MÍNIMO: ',x[moeda]['low'])
+print('MÁXIMA: ',x[moeda]['high'])
+print('ATUAL: ',x[moeda]['bid'])
+prdfint('VARIACAOdf ',x[moeda]['varBid'])
+print('CONSULTADO EM: ',x[moeda]['create_date'])
+
+#USD (Dólar Comercial)
+#USDT (Dólar Turismo)
+#CAD (Dólar Canadense)
+#AUD (Dólar Australiano)
+#EUR (Euro)
+#GBP (Libra Esterlina)
+#ARS (Peso Argentino)
+#JPY (Iene Japonês)
+#CHF (Franco Suíço)
+#CNY (Yuan Chinês)
+#YLS (Novo Shekel Israelense)
+#BTC (Bitcoin)
+#LTC (Litecoin)
+#ETH (Ethereum)
+#XRP (Ripple)
