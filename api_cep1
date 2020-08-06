@@ -1,0 +1,15 @@
+import requests
+import json
+
+cep = '04195050'
+
+url = f'https://cep.awesomeapi.com.br/json/{cep}'
+r = requests.get(url)
+x = r.json()
+
+print('CEP:',x['cep'])
+print('LOGRADOURO:',x['address'])
+print('BAIRRO:',x['district'])
+print('CIDADE:',x['city'])
+print('ESTADO:',x['state'])
+print('DDD:',x['ddd'])
