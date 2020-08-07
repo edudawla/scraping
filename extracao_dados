@@ -1,1 +1,6 @@
-xx
+url = "http://localhost:8000/arquivo.iso"
+inicio = url[0:url.index(':')]
+fim = url[url.index(':8000'):].replace(':8000',"")
+
+print(inicio)
+print(fim)
