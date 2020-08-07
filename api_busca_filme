@@ -1,0 +1,16 @@
+#API DE BUSCA PARA FILMES: OMDB 
+#http://www.omdbapi.com/  #DOCUMENTACAO
+#http://www.omdbapi.com/?apikey=bfe7efda&t=home+alone&y=2005
+#www.omdbapi.com/?apikey=bfe7efda&s=batman
+
+import requests
+import json
+
+key = 'bfe7efda'
+titulo = 'batman'
+url = f"http://www.omdbapi.com/?apikey={key}&s={titulo}"
+r = requests.get(url)
+response = json.loads(r.text)
+
+print('Filme Buscado:',titulo.upper())
+print('Total de Resultados:',response['totalResults'])
