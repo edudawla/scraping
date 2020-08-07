@@ -1,0 +1,11 @@
+import requests
+from datetime import datetime
+import json
+
+r = requests.get('https://economia.awesomeapi.com.br/json/daily/USD-BRL/10')
+cotacao = json.loads(r.text)
+
+print('HISTÓRICO DE FECHAMENTO: ',cotacao[0]['name'])
+for i in cotacao:
+  dia = int(i['timestamp'])
+  print('Em',datetime.fromtimestamp(dia), 'fechou em:',i['bid'],'com variação de:',i['varBid'])
