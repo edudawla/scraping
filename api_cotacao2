@@ -1,15 +1,12 @@
 import requests
-import json
+from datetime import datetime
 
 dias = '05'
 url = f'https://economia.awesomeapi.com.br/json/daily/USD-BRL/{dias}'
 r = requests.get(url)
 x = r.json()
 
-print(x[0]['high'])
-
+print('HISTÓRICO DE FECHAMENTO: ',x[0]['name'])
 for i in x:
-  print(x[i]['high'])
-
-
-#print('MOEDA: ',x[moeda]['name'])
+    dia = int(i['timestamp'])
+    print('Em',datetime.fromtimestamp(dia), 'fechou em:',i['bid'],'com variação de:',i['varBid'])
