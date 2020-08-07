@@ -1,6 +1,13 @@
+#EM UM PADRÃO DESCOBERTO, EXTRAIR UMA PARTE DE UM TEXTO
+
+#palavra onde vou buscar. Vou deixar somento o 'localhost'
 url = "http://localhost:8000/arquivo.iso"
 inicio = url[0:url.index(':')]
-fim = url[url.index(':8000'):].replace(':8000',"")
+fim = url[url.index(':8000'):]#.replace(':8000',"")
 
 print(inicio)
 print(fim)
+
+#TUDO JUNTO
+final = url[url.index(':'):url.index(':8000')].replace('://','')
+print(final)
